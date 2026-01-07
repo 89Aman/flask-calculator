@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#0f0f0f',
+            card: '#161616',
+            border: '#262626',
+            text: '#e5e5e5',
+            muted: '#a3a3a3'
+          }
+        }
+      }
+    }
+    </script>
+</head>
+
+<body class="bg-bg text-text min-h-screen flex items-center justify-center">
+
+    <div class="bg-card border border-border rounded-xl p-9 w-100 shadow-lg">
+        <h1 class="text-center text-lg font-bold mb-9">Calculator</h1>
+
+        <form method="POST" class="space-y-3">
+            <input type="text" name="num1" placeholder="First number" inputmode="decimal" required class="w-full bg-bg border border-border rounded-md px-3 py-2 outline-none focus:border-text">
+            <input type="text" name="num2"placeholder="Second number" inputmode="decimal" required class="w-full bg-bg border border-border rounded-md px-3 py-2 outline-none focus:border-text">
+            
+            <select name="task" required class="w-full bg-bg border border-border rounded-md px-3 py-2 outline-none focus:border-text">
+                <option value="+">Addition</option>
+                <option value="-">Subtraction</option>
+                <option value="*">Multiplication</option>
+                <option value="/">Division</option>
+            </select>
+
+            <button type="submit" class="w-full bg-text text-bg py-2 rounded-md font-medium hover:opacity-90 transition">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+            <div class="mt-4 text-center text-sm text-muted">
+                Result: <span class="text-text font-medium">{{ result }}</span>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
